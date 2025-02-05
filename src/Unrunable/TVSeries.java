@@ -1,3 +1,5 @@
+// Oppgave 2.1 - Modellklasser
+
 package Unrunable;
 
 import java.time.LocalDate;
@@ -23,6 +25,7 @@ public class TVSeries {
 
 
     // METHODS
+    // Oppgave 2.3 - Utskrift og toString()
 
     @Override
     public String toString() {
@@ -31,6 +34,17 @@ public class TVSeries {
                 "\nDescription: " + description +
                 "\nRelease Date: " + releaseDate +
                 "\nEpisodes: " + episodes.size();
+    }
+
+    // Oppgave 2.4 - Hente episoder i sesong
+    public ArrayList<Episode> getEpisodesInSeason(int season) {
+        ArrayList<Episode> episodesFromSeason = new ArrayList<>();
+        for (int i = 0; i < episodes.size(); i++) {
+            if episodes.get(i).getSeasonNumber() == season {
+                episodesFromSeason.add(episodes.get(i));
+            }
+        }
+        return episodesFromSeason;
     }
 
 

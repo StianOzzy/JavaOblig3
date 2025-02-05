@@ -1,3 +1,5 @@
+// Oppgave 2.1 - Modellklasser
+
 package Unrunable;
 
 public class Episode {
@@ -27,6 +29,7 @@ public class Episode {
 
 
     // METHODS
+    // Oppgave 2.3 - Utskrift og toString()
 
     @Override
     public String toString() {
