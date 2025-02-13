@@ -8,7 +8,6 @@ public class Oblig2Main {
 
     public static void main(String[] args) {
 
-        // Oppgave 2.2 - Opprette objekter
         // Creating a TVSeries object
         TVSeries GameOfThrones = new TVSeries("Game of Thrones", "A great show", LocalDate.of(2011,4,17));
 
@@ -16,14 +15,13 @@ public class Oblig2Main {
         System.out.println("\n" + GameOfThrones);
         System.out.println("\n(TVSeries object has no episodes)");
 
-        // Oppgave 2.4 - Hente episoder i sesong // Oppgave 2.6 - Generere tilfeldig spilletid
         // Loops for adding episodes
         int seasonCounter = 1;
         while (seasonCounter < 6) {
             int epCounter = 1;
             while (epCounter < 11) {
                 String currentEpisodeName = "GoT_S" + seasonCounter + "E" + epCounter;
-                Episode ep = new Episode(currentEpisodeName,epCounter,seasonCounter,new Random().nextInt(20, 30));
+                Episode ep = new Episode(currentEpisodeName,new Random().nextInt(20, 30),epCounter,seasonCounter);
                 GameOfThrones.addEpisode(ep);
                 epCounter++;
             }
@@ -37,20 +35,19 @@ public class Oblig2Main {
         // Testing the Episode Objects in a separate print, to see if naming was done correctly.
         System.out.println("\n" + GameOfThrones.getEpisodes());
 
-        // Oppgave 2.3 - Utskrift og toString()
         // Testing @Override toString() functionality
         System.out.println(GameOfThrones.toString());
         System.out.println(GameOfThrones.getEpisodes().get(0).toString());
 
-        // Oppgave 2.4 - Hente episoder i sesong
+        // Getting episodes from a single season
         System.out.println("\n(Print episodes from season 4)");
         System.out.println(GameOfThrones.getEpisodesInSeason(4));
 
-        // Oppgave 2.5 - Gjennomsnittlig spilletid // Oppgave 2.6 - Generere tilfeldig spilletid
+        // Testing random runtime, and average runtime
         System.out.println("\n(Getting the average runtime of the episodes)");
         System.out.println(GameOfThrones.getAverageRunTime());
 
-        // Oppgave 2.8 - "Teste" antall sesonger
+        // Testing season addition rules - Cannot add seasons more than current season+1
         System.out.println("\n(Attemt to add episode in season 7, when season 6 is missing)");
         Episode exampleEpisode1 = new Episode("GoT_S7E1",1,7,new Random().nextInt(20, 30));
         GameOfThrones.addEpisode(exampleEpisode1);
