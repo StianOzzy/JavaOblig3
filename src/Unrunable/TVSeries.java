@@ -1,5 +1,3 @@
-// Oppgave 2.1 - Modellklasser
-
 package Unrunable;
 
 import java.time.LocalDate;
@@ -11,6 +9,8 @@ public class TVSeries {
     private String description;     // En beskrivelse av TV-serien
     private LocalDate releaseDate;  // TV-seriens utgivelsesdato
     private ArrayList<Episode> episodes = new ArrayList<>();     // epiosder i serien
+    private int averageRunTime;
+    private int numSeasons;
 
 
 
@@ -25,7 +25,6 @@ public class TVSeries {
 
 
     // METHODS
-    // Oppgave 2.3 - Utskrift og toString()
 
     @Override
     public String toString() {
@@ -36,20 +35,37 @@ public class TVSeries {
                 "\nEpisodes: " + episodes.size();
     }
 
-    // Oppgave 2.4 - Hente episoder i sesong
     public ArrayList<Episode> getEpisodesInSeason(int season) {
         ArrayList<Episode> episodesFromSeason = new ArrayList<>();
         for (int i = 0; i < episodes.size(); i++) {
-            if episodes.get(i).getSeasonNumber() == season {
+            if (episodes.get(i).getSeasonNumber() == season) {
                 episodesFromSeason.add(episodes.get(i));
             }
         }
         return episodesFromSeason;
     }
 
-
     public void addEpisode(Episode episode) {
-        this.episodes.add(episode);
+        if (episode.getSeasonNumber() - 1 > getNumSeasons()) {
+            System.out.println("Error - season out of bound");
+        }
+        else if (episode.getSeasonNumber() - 1 == getNumSeasons()) {
+            this.numSeasons += 1;
+            this.episodes.add(episode);
+            updateAverageRuntime();
+        }
+        else {
+            this.episodes.add(episode);
+            updateAverageRuntime();
+        }
+    }
+
+    private void updateAverageRuntime() {
+        int totalRuntime = 0;
+        for (int i = 0; i < episodes.size(); i++) {
+            totalRuntime += episodes.get(i).getRuntime();
+        }
+        this.averageRunTime = totalRuntime / episodes.size();
     }
 
 
@@ -85,5 +101,13 @@ public class TVSeries {
 
     public void setEpisode(ArrayList<Episode> episodes) {
         this.episodes = episodes;
+    }
+
+    public int getAverageRunTime() {
+        return averageRunTime;
+    }
+
+    public int getNumSeasons() {
+        return numSeasons;
     }
 }
