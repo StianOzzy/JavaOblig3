@@ -1,4 +1,8 @@
+// Oppgave 2.1 - Production
+
 package Unrunable;
+
+import java.time.LocalDate;
 
 public class Episode extends Production {
 
@@ -22,10 +26,18 @@ public class Episode extends Production {
         this.seasonNumber = seasonNumber;
     }
 
+    // Oppgave 2.3 - Utvide klasser
+    public Episode(String title, int runtime, String description, LocalDate releaseDate, int episodeNumber, int seasonNumber) {
+        super(title,runtime, description, releaseDate);
+        this.episodeNumber = episodeNumber;
+        this.seasonNumber = seasonNumber;
+    }
+
 
 
     // METHODS
 
+    // Oppgave 2.6 - toString()
     @Override
     public String toString() {
         return "\n--Episode info--" +

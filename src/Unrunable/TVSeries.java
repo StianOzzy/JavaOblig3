@@ -26,6 +26,15 @@ public class TVSeries {
 
     // METHODS
 
+    public ArrayList<Role> hentRollebesetning() {
+        ArrayList<Role> allRoles = new ArrayList<>();
+        for (int i = 0; i < episodes.size(); i++) {
+            allRoles.addAll(episodes.get(i).getRoles());
+        }
+        return allRoles;
+    }
+
+    // Oppgave 2.6 - toString()
     @Override
     public String toString() {
         return "\n--TVSeries info--" +
