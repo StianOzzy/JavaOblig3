@@ -23,6 +23,8 @@ public class Role {
         return roleFirstName + " " + roleLastName + " (" + actor + ")";
     }
 
+
+
     // GETTERS AND SETTERS
 
     public String getRoleFirstName() {
