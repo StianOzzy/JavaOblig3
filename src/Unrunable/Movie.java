@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 public class Movie extends Production {
 
+
+
     // CONSTRUCTORS
 
     public Movie(String title) {
@@ -32,10 +34,4 @@ public class Movie extends Production {
                 "\nTitle: " + this.getTitle() +
                 "\nRuntime: " + this.getRuntime();
     }
-
-
-
-    // GETTERS AND SETTERS
-
-
 }
