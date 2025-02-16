@@ -36,6 +36,9 @@ public class Oblig3Main {
         Episode GoT_S1E1 = new Episode("Episode 1", 60, 1,1);
         Episode GoT_S1E2 = new Episode("Episode 2", 60, 1,1);
         Episode GoT_S1E3 = new Episode("Episode 3", 60, 1,1);
+        GameOfThrones.addEpisode(GoT_S1E1);
+        GameOfThrones.addEpisode(GoT_S1E2);
+        GameOfThrones.addEpisode(GoT_S1E3);
 
         Person timothyVanPatten = new Person("Timothy", "Van Patten");
         GoT_S1E1.setDirector(timothyVanPatten);
@@ -44,7 +47,7 @@ public class Oblig3Main {
         System.out.println("GoT_S1E1 director: " + GoT_S1E1.getDirector());
 
         // Oppgave 2.5 - Roller
-        System.out.println("\n\n(Adding roles to Movie objects)");
+        System.out.println("\n\n(Adding roles to Movie objects)\n");
 
         // Testing with a single object first
         Person rusellCrowe = new Person("Rusell", "Crowe");
@@ -65,22 +68,26 @@ public class Oblig3Main {
         // Oppgave 2.7 - Hente alle roller
 
         // Adding 3 different actors to 3 different roles, in 3 different episodes
+
+        // Ned Stark (Sean Bean) goes into episode 1
         Person seanBean = new Person("Sean", "Bean");
         Role nedStark = new Role("Ned","Stark",seanBean);
         GoT_S1E1.addToRoles(nedStark);
 
+        // Tyrion Lannister (Peter Dinklage) goes into episode 2
         Person peterDinklage = new Person("Peter", "Dinklage");
         Role tyrionLannister = new Role("Tyrion", "Lannister",peterDinklage);
         GoT_S1E2.addToRoles(tyrionLannister);
 
+        // Jon Snow (Kit Harington) goes into episode 3
         Person kitHarington = new Person("Kit", "Harington");
         Role jonSnow = new Role("Jon","Snow",kitHarington);
+        GoT_S1E1.addToRoles(jonSnow);
         GoT_S1E3.addToRoles(jonSnow);
 
-        System.out.println("(Adding roles from different Episodes into a list)");
+        // All different roles from the TVSeries object are printed with hentRollebesetning()
+        System.out.println("\n\n(Adding roles from different Episodes of a TVSeries into a common list)\n");
         System.out.println(GameOfThrones.hentRollebesetning());
-
-        System.out.println(GameOfThrones.getEpisodes().get(1).getRoles());
 
     }
 
