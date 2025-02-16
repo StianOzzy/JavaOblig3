@@ -20,6 +20,7 @@ public class Production {
     private ArrayList<Role> roles = new ArrayList<>();
 
 
+
     // CONSTRUCTORS
 
     public Production(String title) {
@@ -38,6 +39,8 @@ public class Production {
         this.description = description;
         this.releaseDate = releaseDate;
     }
+
+
 
     // METHODS
 
