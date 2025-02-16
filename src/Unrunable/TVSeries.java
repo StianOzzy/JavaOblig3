@@ -78,6 +78,7 @@ public class TVSeries {
     }
 
 
+
     // GETTERS AND SETTERS
 
     public String getTitle() {
